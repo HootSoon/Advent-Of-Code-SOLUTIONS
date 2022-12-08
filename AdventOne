@@ -1,0 +1,59 @@
+// package AdventOfCode; - (Package used in eclipse)
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AdventOne {
+	public static void main(String[] args) throws IOException {
+		File input = new File("D:\\NotePad\\NotePAD\\Input.txt");
+		Scanner sc = new Scanner(input);
+ // STORES THE SUMS
+		ArrayList<Integer> Sums = new ArrayList<Integer>();
+ // READS FILE AND CREATES SUMS
+		String in = sc.nextLine();
+		int tempsum = 0;
+		while (sc.hasNextLine()) {
+			if(in.length() > 1) {
+				tempsum += (Integer.parseInt(in));
+			}else {
+				Sums.add(tempsum);
+				tempsum = 0;
+			}
+			in = sc.nextLine();
+		}
+		
+		int largestSum = 0;
+		int SecondSum = 0;
+		int ThirdSum = 0;
+		
+		int TotalSum = 0;
+		
+// get largest number
+		for(int i = 0; i < Sums.size(); i++) {
+			if(largestSum < Sums.get(i)) {
+				largestSum = Sums.get(i);
+			}
+		}
+// get second largest num
+		for(int i = 0; i < Sums.size(); i++) {
+			if(SecondSum < Sums.get(i) && Sums.get(i) < largestSum) {
+				SecondSum = Sums.get(i);
+			}
+		}
+// get third largest num
+		for(int i = 0; i < Sums.size(); i++) {
+			if(ThirdSum < Sums.get(i) && Sums.get(i) < SecondSum ) {
+				ThirdSum = Sums.get(i);
+			}
+		}
+		TotalSum = largestSum + SecondSum + ThirdSum;
+		System.out.println("THE AWNSER TO ADVENT OF CODE 1 PART 1 AND LARGEST SUM OF THE NUMBERS IS : " + largestSum);
+		System.out.println("SECOND LARGEST NUM : " + SecondSum);
+		System.out.println("THIRD LARGEST NUM : " + ThirdSum);
+		System.out.println("TOTAL SUM OF TOP 3 AND AWNSER TO ADVENT OF CODE 1 PART 2 IS : " + TotalSum);
+		
+		
+	}
+}
