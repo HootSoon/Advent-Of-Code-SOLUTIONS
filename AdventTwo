@@ -1,0 +1,59 @@
+package Advet;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+public class Adventtwo {
+	// A - rock , B - paper, C - scissors
+	//X - rock , Y - paper, Z - scissors
+	//rock = 1 , paper = 2, scissors = 3 +++ 0 lost , 3 draw, 6 win
+	
+	// strategy guide
+	/*
+	A Y  - Win
+	B X  - Lose
+	C Z  - draw
+	*/
+	
+	static HashMap<String, Integer> response = new HashMap<String, Integer>();
+	static File input = new File("C:\\Users\\hudreeve\\Downloads\\input2.txt");
+	
+	public static void main(String[] args) throws FileNotFoundException {
+	List<String> enemy = new ArrayList<String>();
+	List<String> self = new ArrayList<String>();
+	splitDecision(enemy, self);
+	addValues("ABCYXZ");
+	}
+	public static void splitDecision(List<String> enemy, List<String> self) throws FileNotFoundException {
+		Scanner sc = new Scanner(input);
+		
+		String line = sc.nextLine();
+		String first = line.substring(0,1);
+		String second = line.substring(2);
+		
+		while(sc.hasNextLine()) {
+			enemy.add(first);
+			self.add(second);
+			System.out.println(first + " " + second);
+			
+			line = sc.nextLine();
+			first = line.substring(0,1);
+			second = line.substring(2);
+			
+		}
+		System.out.println(enemy + " " + self);
+	}
+	
+	public static void calcOutcome(List<String> enemy, List<String> self) {
+		int sum = 0;
+		for(int i = 0; i < enemy.size(); i+=3) {
+			
+		}
+	}
+	
+	public static void addValues(String letters) {
+		
+	}
+	
+}
